@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="defaultLoop.png" />
+    <None Remove="EnglishScience.png" />
+    <None Remove="logo.png" />
+    <None Remove="selectedLoop.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\englishScience.png" />
+    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\defaultLoop.png" />
+    <Resource Include="Resources\selectedLoop.png" />
+  </ItemGroup>
+
+</Project>

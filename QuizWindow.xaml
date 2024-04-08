@@ -1,0 +1,28 @@
+﻿<Window x:Class="EnglishScience.QuizWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishScience"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="{StaticResource MaterialDesignDivider}"
+        Title="Quiz" Height="350" Width="640" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/resources/englishScience.png">
+    <Grid>
+
+        <StackPanel materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="{DynamicResource MaterialDesignDarkBackground}" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="94" Width="640">
+            <TextBlock x:Name="questionNumberTextBlock" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="30" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  TextAlignment="Center" Height="42" Width="200" ><Run Text="№1/10"/></TextBlock>
+            <TextBlock x:Name="wordKeyTextBlock" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="45" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  TextAlignment="Center" Height="62" Width="232" ><Run Text="Word Key"/></TextBlock>
+            <TextBlock x:Name="scoreTextBlock" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="30" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  TextAlignment="Center" Height="47" Width="206" ><Run Text="Score: 0"/></TextBlock>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="100" Margin="0,110,0,0">
+            <Button x:Name="firstOptionButton" Click="Button_Click" FontSize="18" Style="{StaticResource MaterialDesignPaperDarkButton}"  Content="Value 1" BorderBrush="{x:Null}" Height="76" Width="257" Margin="0,0,15,0" />
+            <Button x:Name="secondOptionButton" Click="Button_Click" FontSize="18" Style="{StaticResource MaterialDesignPaperDarkButton}"  Content="Value 1" BorderBrush="{x:Null}" Height="76" Width="257" Margin="15,0,0,0" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,205,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button x:Name="thirdOptionButton" Click="Button_Click" FontSize="18" Style="{StaticResource MaterialDesignPaperDarkButton}"  Content="Value 1" BorderBrush="{x:Null}" Height="76" Width="257" Margin="0,0,15,0" />
+            <Button x:Name="fourthOptionButton" Click="Button_Click" FontSize="18" Style="{StaticResource MaterialDesignPaperDarkButton}"  Content="Value 1" BorderBrush="{x:Null}" Height="76" Width="257" Margin="15,0,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

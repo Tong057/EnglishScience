@@ -1,0 +1,84 @@
+﻿<Window x:Class="EnglishScience.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishScience"
+        mc:Ignorable="d"
+        Background="{StaticResource MaterialDesignDivider}"
+        Title="EnglishScience" Height="630" Width="600" WindowStartupLocation="CenterScreen" Icon="/resources/logo.png" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid Margin="22,22,22,22" Cursor="Hand">
+        <Rectangle RadiusX="4" RadiusY="4" Margin="5,130,5,55" Fill="{StaticResource MaterialDesignDarkBackground}"/>
+        <StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Height="60">
+                <Image Height="40" Source="/resources/englishScience.png" Cursor="Arrow" Stretch="Fill" Width="315" Margin="0,0,5,0"/>
+                <Image x:Name="searchButton" Height="36" Stretch="Fill" Width="36" Margin="0,0,20,0" MouseDown="SearchButton_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/resources/defaultLoop.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=searchButton}" Value="True">
+                                    <Setter Property="Source" Value="/resources/selectedLoop.png" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <StackPanel
+                  Margin="0,4,0,4"
+                  Orientation="Horizontal">
+                        <RadioButton x:Name="englishRadioButton" Click="SetEnglishLanguage_Click"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                    Content="English"
+                    IsChecked="True"
+                    Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
+                        <RadioButton x:Name="polishRadioButton" Click="SetPolishLanguage_Click"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                        Foreground="{StaticResource PrimaryHueMidBrush}"
+                    Content="Polski"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButtonTop}" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top" Height="67" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="firstTextBox" TextWrapping="Wrap" materialDesign:HintAssist.Hint="{DynamicResource firstTextBoxHint}" Style="{StaticResource MaterialDesignFilledTextBox}" Width="260" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" Padding="0,0,0,0"  MinHeight="3" Margin="0,0,10,0" FontFamily="{StaticResource MaterialDesignFont}" FontSize="20" Foreground="White"/>
+                <TextBox x:Name="secondTextBox" TextWrapping="Wrap" materialDesign:HintAssist.Hint="{DynamicResource secondTextBoxHint}" Style="{StaticResource MaterialDesignFilledTextBox}" Width="260" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Height="52" Padding="0,0,0,0" FontFamily="{StaticResource MaterialDesignFont}" FontSize="20" Foreground="White"/>
+            </StackPanel>
+
+            <ListView x:Name="dictionaryListView" MouseLeftButtonUp="DictionaryListView_MouseLeftButtonUp" FontFamily="{StaticResource MaterialDesignFont}" FontSize="20"
+              Margin="5,10,5,0" Height="345"
+             HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="{DynamicResource firstColumnHeader}" Width="270">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Key}" Margin="15,0,0,0"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        <GridViewColumn Header="{DynamicResource secondColumnHeader}" Width="270">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Value}" Margin="15,0,0,0"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            <StackPanel Orientation="Horizontal" Height="55" Cursor="Hand" HorizontalAlignment="Center" Margin="5,10,5,0">
+                <Button Width="126" Content="Launch Test" Click="Button_Click" Style="{StaticResource MaterialDesignPaperDarkButton}" FontFamily="{StaticResource MaterialDesignFont}" Foreground="{StaticResource PrimaryHueMidBrush}" BorderBrush="{x:Null}" Height="38" Cursor="Hand" Margin="4,0,4,0" />
+                <Button Width="125" Content="History" Click="Button_Click" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignPaperDarkButton}" FontFamily="{StaticResource MaterialDesignFont}" BorderBrush="{x:Null}" Height="38" Cursor="Hand" Margin="4,0,4,0"/>
+                <Button Width="125" Content="Add word" Click="Button_Click" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignPaperDarkButton}" FontFamily="{StaticResource MaterialDesignFont}"  BorderBrush="{x:Null}" Height="38" Margin="4,0,4,0"/>
+                <Button Width="126" Content="Delete word" Click="Button_Click" Foreground="{StaticResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignPaperDarkButton}" FontFamily="{StaticResource MaterialDesignFont}"  BorderBrush="{x:Null}" Height="38" Margin="4,0,4,0"/>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
